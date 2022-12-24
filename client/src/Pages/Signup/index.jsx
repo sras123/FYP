@@ -12,6 +12,7 @@ const Signup = () => {
 	});
 	const history= useHistory();
 	const [error, setError] = useState("");
+	const[msg, setMsg]= useState("");
 
 
 	const handleChange = ({ currentTarget: input }) => {
@@ -23,8 +24,8 @@ const Signup = () => {
 		try {
 			const url = "http://localhost:8080/api/users";
 			const { data: res } = await axios.post(url, data);
-			console.log(res.message);
-			history.push("/login");
+			setMsg(res.message);
+			// history.push("/login");
 		} catch (error) {
 			if (
 				error.response &&
@@ -87,6 +88,7 @@ const Signup = () => {
 							className={styles.input}
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
+						{msg && <div className={styles.success_msg}>{msg}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Sign Up
 						</button>
