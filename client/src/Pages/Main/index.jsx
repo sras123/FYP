@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 
 
+
 const Main = () => {
 	const handleLogout = () => {
 		localStorage.removeItem("token");
@@ -9,6 +10,7 @@ const Main = () => {
 	};
 
 	return (
+		
 		<div className={styles.main_container}>
 			<nav className={styles.navbar}>
 				<h1>My Psychiatrist</h1>

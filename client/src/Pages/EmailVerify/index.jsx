@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import tick from "../../images/success.png";
 import styles from "./styles.module.css";
 // import { Fragment } from "react/cjs/react.production.min";
 import React, { Fragment } from 'react';
@@ -29,7 +28,7 @@ const EmailVerify = () => {
 		<Fragment>
 			{validUrl ? (
 				<div className={styles.container}>
-					<img src={tick} alt="success_img" className={styles.success_img} />
+					<img src="/images/success.png" alt="success" className={styles.success_img} />
 					<h1>Email verified successfully</h1>
 					<Link to="/login">
 						<button className={styles.green_btn}>Login</button>

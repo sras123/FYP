@@ -7,7 +7,7 @@ const userRoutes= require('./Routes/users');
 const authRoutes= require('./Routes/auth');
 
 
-//database conncetion
+
 connection()
 app.use(cors({ origin: "*" }));
 app.use(express.json())
