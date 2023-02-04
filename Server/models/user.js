@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
 	email: { type: String, required: true },
 	password: { type: String, required: true },
 	verified:{type:Boolean, default:false},
+	role:{type:Number, default:0}
 });
 
 userSchema.methods.generateAuthToken = function () {
