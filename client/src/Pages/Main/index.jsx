@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
+import { } from "react-router-dom";
 import React from "react";
+
+
 
 const Main = () => {
 	const handleLogout = () => {
@@ -21,6 +23,7 @@ const Main = () => {
 			    <li><a href="/reviews">Reviews</a></li>
 			    <li><a href="/signup">Signup</a></li>
 				<li><a href="/login" onclick={handleLogout}>logout</a></li>
+				
 			
 			</ul>
 		</div>
@@ -43,7 +46,7 @@ const Main = () => {
 			    <li><a href="/reviews">Reviews</a></li>
 				<li><a href="#">Privacy Policy</a></li>
 			</ul>
-			<p class="Copyright">
+			<p class="Copyright">y
 			@2023 My Psychiatrist
 			</p>
 		</div>
