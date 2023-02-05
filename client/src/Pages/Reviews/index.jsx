@@ -79,6 +79,22 @@ const Reviews=() => {
             </div>
         </div>
         </div>
+        <div class="footer">
+			<div class="social">
+				<a href="#"><i class="fab fa-instagram"></i></a>
+				<a href="#"><i class="fab fa-facebook"></i></a>
+				<a href="#"><i class="fab fa-twitter"></i></a>
+			</div>
+			<ul class="list">
+				<li><a href="/aboutUs">About Us</a></li>
+			    <li><a href="/contact">Contact</a></li>
+			    <li><a href="/reviews">Reviews</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+			</ul>
+			<p class="Copyright">
+			@2023 My Psychiatrist
+			</p>
+		</div>
         </>
     )
 }

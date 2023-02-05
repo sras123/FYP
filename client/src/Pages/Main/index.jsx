@@ -46,7 +46,7 @@ const Main = () => {
 			    <li><a href="/reviews">Reviews</a></li>
 				<li><a href="#">Privacy Policy</a></li>
 			</ul>
-			<p class="Copyright">y
+			<p class="Copyright">
 			@2023 My Psychiatrist
 			</p>
 		</div>
