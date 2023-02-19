@@ -9,6 +9,8 @@ import AboutUs from "./Pages/AboutUs";
 import Contact from "./Pages/Contact";
 import Reviews from "./Pages/Reviews";
 import AdminPanel from "./Pages/AdminPanel";
+import BookingPage from "./Pages/BookingPage";
+
 function App() {
 	const user = localStorage.getItem("token");
 
@@ -25,6 +27,7 @@ function App() {
             <Route exact path="/forgot-password" component={ForgotPassword}/>
             <Route exact path="/password-reset/:id/:token" component={PasswordReset}/>
             <Route exact path="/adminpanel" component={AdminPanel}/>
+            <Route exact path="/bookingpage" component={BookingPage}/>
         </Switch>
         
         </>

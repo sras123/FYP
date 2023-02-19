@@ -1,3 +1,4 @@
+//route object
 const router = require("express").Router();
 const { User, validate } = require("../models/user");
 const Token = require("../models/token");
@@ -5,6 +6,7 @@ const crypto = require("crypto");
 const sendEmail = require("../utils/sendEmail");
 const bcrypt = require("bcrypt");
 
+//POST method
 router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
@@ -38,6 +40,7 @@ router.post("/", async (req, res) => {
 	}
 });
 
+//GET method
 router.get("/:id/verify/:token/", async (req, res) => {
 	try {
 		const user = await User.findOne({ _id: req.params.id });

@@ -1,27 +1,50 @@
 import React from "react";
-// import styles from "./styles.module.css";
 
 const AdminPanel=() => {
+    const handleLogout = () => {
+		localStorage.removeItem("token");
+		window.location.reload();
+	};
     return(
         <>
         <style>
-        @import url('/css/adminpanel.css');
-        </style>
-        <div class="navbar">
-        <h1>Admin Panel</h1>
-        <nav><ul>
-            <li> <a href="/home">Home</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li> <a href="">About Us</a></li>
-            <li><a href="">Help</a></li>
-            </ul></nav>
-            <button class="btn" type="submit">Sign Up</button>
+			@import url('/css/adminpanel.css');
+		</style>
+		
+		<div class="navbar">
+			<img src="/images/logo.png" class="logo"></img>
+			<ul>
+				<li><a href="/aboutUs">About Us</a></li>
+			    <li><a href="/contact">Contact</a></li>
+			    <li><a href="/reviews">Reviews</a></li>
+			    <li><a href="/signup">Signup</a></li>
+				<li><a href="/login" onclick={handleLogout}>logout</a></li>
+				
+			
+			</ul>
+		</div>
+
+        <div class="content">
+            <div class="adminpanel"><h1>Admin Panel</h1></div>
         </div>
-        
+        <div class="footer">
+			<div class="social">
+				<a href="#"><i class="fab fa-instagram"></i></a>
+				<a href="#"><i class="fab fa-facebook"></i></a>
+				<a href="#"><i class="fab fa-twitter"></i></a>
+			</div>
+			<ul class="list">
+				<li><a href="/aboutUs">About Us</a></li>
+			    <li><a href="/contact">Contact</a></li>
+			    <li><a href="/reviews">Reviews</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+			</ul>
+			<p class="Copyright">
+			@2023 My Psychiatrist
+			</p>
+		</div>
         </>
+
     )
 }
-
-
-
 export default AdminPanel;

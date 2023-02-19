@@ -52,6 +52,55 @@
   .navbar ul li:hover::after{
     width:100%;
   }
+ .about .heading{
+  text-align:center;
+  padding-bottom:2rem;
+  text-shadow: black;
+  text-transform:uppercase ;
+  color: black;
+  font-size: 5rem;
+  letter-spacing:4rem;
+ }
+
+ .about .heading span{
+  text-transform:uppercase ;
+  color: #C2B280;
+  
+ }
+ .about .row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:2rem;
+ }
+
+ .about .row .image{
+  flex: 1 1 45rem;
+ }
+
+ .about .row .image img{
+  width: 100%;
+ }
+
+
+ .about .row .content{
+  flex: 1 1 45rem;
+ }
+
+ .about .row .contnet h3{
+  color: var(--black);
+  text-shadow: grey;
+  font-size: 4rem;
+  line-height: 1.8;
+ }
+
+ .about .row .contnet p{
+  color: var(--light-color);
+  padding: 1rem 0;
+  font-size: 4rem;
+  line-height: 1.8;
+ }
+
 
 
   .footer{

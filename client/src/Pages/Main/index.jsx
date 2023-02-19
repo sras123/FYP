@@ -1,5 +1,7 @@
 import { } from "react-router-dom";
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 
 
@@ -30,8 +32,11 @@ const Main = () => {
 		<div class= "content">
 			<h1>Get Online Counseling</h1>
 			<div>
+			<Link to="/bookingpage">
 				<button type="button"><span></span> Get Started </button>
+				</Link>
 			</div>
+			
 		</div>
 		</div>
 		<div class="footer">

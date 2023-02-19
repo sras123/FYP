@@ -1,6 +1,6 @@
 import React from "react";
 
-const Contact=() => {
+const BookingPage=() => {
     const handleLogout = () => {
 		localStorage.removeItem("token");
 		window.location.reload();
@@ -8,7 +8,7 @@ const Contact=() => {
     return(
         <>
         <style>
-			@import url('/css/contact.css');
+			@import url('/css/adminpanel.css');
 		</style>
 		
 		<div class="navbar">
@@ -23,8 +23,8 @@ const Contact=() => {
 			
 			</ul>
 		</div>
-		<div class="content"><h1>Contact Us</h1>
-        </div>
+
+    
         <div class="footer">
 			<div class="social">
 				<a href="#"><i class="fab fa-instagram"></i></a>
@@ -45,4 +45,4 @@ const Contact=() => {
 
     )
 }
-export default Contact;
+export default BookingPage;
