@@ -1,24 +1,24 @@
-const express= require('express');
-const app= express()
-require("dotenv").config();
+const express = require('express')
+require('dotenv/config')
+require('./config/databaseConnection')
 const cors= require('cors');
-const connection= require("./db");
-const userRoutes= require('./Routes/users');
-const authRoutes= require('./Routes/auth');
-const passwordResetRoutes= require("./routes/passwordReset");
+const morgan = require("morgan");
+const app = express();
 
-//database connection
-connection();
-
-//middlewares
+app.use(morgan("tiny"));
+app.use(express.json())
 app.use(cors({ origin: "*" }));
-app.use(express.json());
-
+app.use(express.urlencoded({extended: true}))
 
 //routes
-app.use("/api/users", userRoutes);
-app.use("/api/auth", authRoutes);
-app.use("/api/password-reset", passwordResetRoutes);
+const authorizeRoute = require('./Routes/authorizeRoute')
+app.use('/', authorizeRoute)
 
-const port = process.env.PORT || 8080; 
-app.listen(port, console.log(`Listening on port ${port}...`));
+const userRoute = require('./Routes/userRoute')
+app.use('/', userRoute)
+
+app.listen(8080, (req, res, next)=> {
+    console.log("Listening the server")
+}
+)
+

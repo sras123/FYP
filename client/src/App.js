@@ -9,7 +9,8 @@ import AboutUs from "./Pages/AboutUs";
 import Contact from "./Pages/Contact";
 import Reviews from "./Pages/Reviews";
 import AdminPanel from "./Pages/AdminPanel";
-import BookingPage from "./Pages/BookingPage";
+import BookingPage from "./Pages/BookingPage.js";
+
 
 function App() {
 	const user = localStorage.getItem("token");

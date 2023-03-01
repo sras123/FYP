@@ -1,11 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
+	const history= useHistory();
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
@@ -14,10 +18,11 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8080/api/auth";
+			const url = "http://localhost:8080/login";
 			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
-			window.location = "/";
+			localStorage.setItem("token", res.data.token);
+			toast("logged in successfully")
+			history.push("/");
 		} catch (error) {
 			if (
 				error.response &&
