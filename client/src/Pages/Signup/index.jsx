@@ -17,33 +17,32 @@ const Signup = () => {
 	});
 	const history= useHistory();
 	const [error, setError] = useState("");
-	const[msg, setMsg]= useState("");
-
+	
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
 	};
 
 	const handleSubmit = async (e) => {
-		console.log("from index.js of sigup",data)
-		e.preventDefault();
-		try {
-			const url = "http://localhost:8080/register";
-			const { data: res } = await axios.post(url, data);
-			// const response = await axios.post(url,data);
-			toast("user registered successful. Check your email.")
-			setMsg(res.message);
-			history.push("/login");
-		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
-				setError(error.response.data.message);
-			}
-		}
-	};
+        e.preventDefault();
+        try {
+            const url = "http://localhost:8080/register";
+            const { data: res } = await axios.post(url, data);
+            const message = res;
+            toast(`${message}`)
+            history.push("/login");
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response?.data?.message ??
+                error.message ??
+                'Internal server error.');
+            setError(error.response.data.error);
+            setTimeout(()=>{
+                setError("");
+            },3000);
+
+        }
+    };
 
 	return (
 		<div className={styles.signup_container}>

@@ -10,6 +10,7 @@ import Contact from "./Pages/Contact";
 import Reviews from "./Pages/Reviews";
 import AdminPanel from "./Pages/AdminPanel";
 import BookingPage from "./Pages/BookingPage.js";
+import Room from "./Pages/Room";
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
             <Route exact path="/password-reset/:id/:token" component={PasswordReset}/>
             <Route exact path="/adminpanel" component={AdminPanel}/>
             <Route exact path="/bookingpage" component={BookingPage}/>
+            <Route exact path="/room" component={Room}/>
+            
         </Switch>
         
         </>

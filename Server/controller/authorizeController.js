@@ -42,7 +42,7 @@ const register = async (req, res, next) => {
                         }).save()
 
                         const url = `${process.env.BASE_URL}users/${registration._id}/verify/${tokens.token}`
-                        // const url = /${registration._id}/verify/${tokens.token}
+                        
                         console.log(url)
                         await sendEmail(registration.email, "verify Email", url)
                         console.log("Email has been sent for verification")
@@ -79,13 +79,15 @@ const login = async (req, res, next) => {
                 } else {
                     tokenResponse(existingUser, 200, res)
                 }
-
             }
         }catch(err){
             res.json(err.message)
         }
+        // return res.status(200).json("Logged in")
     }
+
 }
+
 
 // const resendVerification = async(req, res, next => {
 

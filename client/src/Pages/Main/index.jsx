@@ -57,33 +57,3 @@ const Main = () => {
 };
 
 export default Main;
-{/* <header>
-		<div id="menu-bar" class="fas fa-bars"></div>
-
-		<a href="#" class="logo"> <span>My</span>Psychiatrist</a>
-		<nav class="navbar">
-			
-			<a href="/aboutUs">About Us</a>
-			<a href="/contact">Contact</a>
-			<a href="/reviews">Reviews</a>
-			<a href="/signup">Signup</a>
-			<a href="/login">login</a>
-			
-			<Link to="/login">
-		 		<button type="button" className={styles.white_btn} onClick={handleLogout}>
-		 			Logout
-			</button>
-		 	</Link>
-			
-			
-			
-		</nav>
-		</header>
-	    <div className="img">
-		
-			<img src="./images/counsel1.jpg" alt=""></img>
-			<button class="btn">
-				Get Started
-			</button>
-		</div>
-		 */}

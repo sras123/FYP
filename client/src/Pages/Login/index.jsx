@@ -16,23 +16,24 @@ const Login = () => {
 	};
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-			const url = "http://localhost:8080/login";
-			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data.token);
-			toast("logged in successfully")
-			history.push("/");
-		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
-				setError(error.response.data.message);
-			}
-		}
-	};
+        e.preventDefault();
+        try {
+            const url = "http://localhost:8080/login";
+            const { data: res } = await axios.post(url, data);
+            localStorage.setItem("token", res.token);
+            const message = res;
+            toast(`${message}`)
+            history.push("/");
+        } catch (error) {
+            if (
+                error.response &&
+                error.response.status >= 400 &&
+                error.response.status <= 500
+            ) {
+                setError(error.response.data.message);
+            }
+        }
+    };
 
 	return (
 		<div className={styles.login_container}>
