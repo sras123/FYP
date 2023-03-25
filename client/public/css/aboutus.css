@@ -52,7 +52,29 @@
   .navbar ul li:hover::after{
     width:100%;
   }
- .about .heading{
+
+  .about{
+    padding:40px 0;
+    background: #f1f1f1;
+    color: #434343;
+    text-align: center;
+}
+
+.inner{
+    max-width:1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20 px;
+}
+
+.border{
+    width: 160px;
+    height: 5px;
+    background: #c2b280;
+    margin: 26px auto;
+
+}
+ /* .about .heading{
   text-align:center;
   padding-bottom:2rem;
   text-shadow: black;
@@ -64,9 +86,9 @@
 
  .about .heading span{
   text-transform:uppercase ;
-  color: #C2B280;
+  color: #C2B280; 
   
- }
+ }*/
  .about .row{
   display: flex;
   align-items: center;
@@ -79,7 +101,8 @@
  }
 
  .about .row .image img{
-  width: 100%;
+  
+  width: 50%;
  }
 
 
@@ -164,4 +187,4 @@
     text-align: center;
     font-size: 13px;
     color:#848482;
-  
+  }

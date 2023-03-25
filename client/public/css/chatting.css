@@ -27,7 +27,7 @@
     width: 210px;
     height: 40px;
     margin: 7px;
-    border: 2px solid #43a047;
+    border: 2px solid #C2B280;
     border-radius: 5px;
     padding: 5px;
     font-size: 16px;
@@ -41,7 +41,7 @@
     border-radius: 5px;
     padding: 5px;
     font-size: 16px;
-    background: #43a047;
+    background: #C2B280;
     color: #fff;
     cursor: pointer;
   }
@@ -101,7 +101,7 @@
     height: auto;
     min-height: 40px;
     max-width: 120px;
-    background-color: #43a047;
+    background-color: #C2B280;
     border-radius: 5px;
     color: white;
     display: flex;
@@ -184,7 +184,7 @@
   }
   
   .chat-window .chat-footer button:hover {
-    color: #43a047;
+    color: #C2B280;
   }
   .hide {
     opacity: 0 !important;
