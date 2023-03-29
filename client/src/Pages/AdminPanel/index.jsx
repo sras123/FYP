@@ -126,7 +126,7 @@ const AdminPanel=() => {
 						<TableCell>
 							<Button variant="contained" color="primary" style={{margin:10}} component={Link} to={`/updateUser/${user._id}`}>Edit</Button>
 							<Button variant="contained" color="secondary" onClick={() => deleteUserData(user._id)}>Delete</Button>
-							<Button variant="contained" color="primary" style={{margin:10}} component={Link}>Add User</Button>
+							<Button variant="contained" color="primary" style={{margin:10}} component={Link} to={'/postUser'}>Add User</Button>
 						</TableCell>
 					</TableRow>
 				))}
@@ -141,10 +141,10 @@ const AdminPanel=() => {
 				<a href="#"><i class="fab fa-twitter"></i></a>
 			</div>
 			<ul class="list">
-				<li><a href="/allusers">Users</a></li>
-			    <li><a href="/reviews">Review</a></li>
-			    <li><a href="/appoint">Appointment</a></li>
-				<li><a href="/therapy">Therapy</a></li>
+				<li><a href="/aboutUs">About Us</a></li>
+			    <li><a href="/contact">Contact</a></li>
+			    <li><a href="/reviews">Reviews</a></li>
+				<li><a href="#">Privacy Policy</a></li>
 			</ul>
 		</div>
 
