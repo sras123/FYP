@@ -1,7 +1,5 @@
-import { } from "react-router-dom";
+import { Link} from "react-router-dom";
 import React from "react";
-
-
 
 const Main = () => {
 	const handleLogout = () => {
@@ -30,7 +28,9 @@ const Main = () => {
 		<div class= "content">
 			<h1>Get Online Counseling</h1>
 			<div>
+			<Link to="/bookingpage" >
 				<button type="button"><span></span> Book Now</button>
+			</Link>
 			</div>
 		</div>
 		</div>
