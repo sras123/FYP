@@ -14,7 +14,9 @@ const Main = () => {
 		</style>
 		<div class="banner">
 		<div class="navbar">
-			<img src="/images/logo.png" class="logo"></img>
+			<Link to="/" >
+				<img src="/images/logo.png" class="logo"></img>
+			</Link>
 			<ul>
 				<li><a href="/aboutUs">About Us</a></li>
 			    <li><a href="/contact">Contact</a></li>

@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from "react-router-dom";
+
 
 const Contact=() => {
     const handleLogout = () => {
@@ -12,7 +14,9 @@ const Contact=() => {
 		</style>
 		
 		<div class="navbar">
-			<img src="/images/logo.png" class="logo"></img>
+		<Link to="/" >
+                <img src="/images/logo.png" class="logo"></img>
+		    </Link>
 			<ul>
 				<li><a href="/aboutUs">About Us</a></li>
 			    <li><a href="/contact">Contact</a></li>
@@ -23,8 +27,22 @@ const Contact=() => {
 			
 			</ul>
 		</div>
-		<div class="content"><h1>Contact Us</h1>
-        </div>
+
+
+		<div class="container">
+		<div class="contact-box">
+			
+			<div class="right">
+				<h2>Contact Us</h2>
+				<input type="text" class="field" placeholder="Your Name"></input>
+				<input type="text" class="field" placeholder="Your Email"></input>
+				<input type="text" class="field" placeholder="Phone"></input>
+				<textarea placeholder="Message" class="field"></textarea>
+				<button class="btn">Send</button>
+			</div>
+		</div>
+	</div>
+		
         <div class="footer">
 			<div class="social">
 				<a href="#"><i class="fab fa-instagram"></i></a>

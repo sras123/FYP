@@ -112,6 +112,7 @@ const AdminPanel=() => {
 					<TableCell>Email</TableCell>
 					<TableCell>Role</TableCell>
 					<TableCell>Functionality</TableCell>
+					<TableCell><Button variant="contained" color="primary" style={{margin:10}} component={Link} to={'/postUser'}>Add User</Button></TableCell>
 				</TableRow>
 			</TableHead>
 
@@ -126,7 +127,7 @@ const AdminPanel=() => {
 						<TableCell>
 							<Button variant="contained" color="primary" style={{margin:10}} component={Link} to={`/updateUser/${user._id}`}>Edit</Button>
 							<Button variant="contained" color="secondary" onClick={() => deleteUserData(user._id)}>Delete</Button>
-							<Button variant="contained" color="primary" style={{margin:10}} component={Link} to={'/postUser'}>Add User</Button>
+							{/* <Button variant="contained" color="primary" style={{margin:10}} component={Link} to={'/postUser'}>Add User</Button> */}
 						</TableCell>
 					</TableRow>
 				))}
