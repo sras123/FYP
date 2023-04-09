@@ -9,10 +9,11 @@ import AboutUs from "./Pages/AboutUs";
 import Contact from "./Pages/Contact";
 import Reviews from "./Pages/Reviews";
 import AdminPanel from "./Pages/AdminPanel";
-import BookingPage from "./Pages/BookingPage.js";
+import BookingPage from "./Pages/BookingPage";
 import Room from "./Pages/Room";
 import UpdatUser from "./Pages/AdminPanel/UpdateUser";
 import PostUser from "./Pages/AdminPanel/PostUser";
+import ApplyDoctor from "./Pages/ApplyDoctor";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -34,7 +35,7 @@ function App() {
             <Route exact path="/room" component={Room}/>
             <Route exact path="/updateUser/:id" component={UpdatUser}/>
             <Route exact path="/postUser" component={PostUser}/>
-            
+            <Route exact path="/apply" component={ApplyDoctor}/>
         </Switch>
         
         </>
