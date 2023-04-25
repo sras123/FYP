@@ -39,6 +39,7 @@ const PostUser = () => {
         }
 
         try{
+            console.log("hi")
             const {data} = await axios.post(url,{firstName,lastName,email,password,confirmPassword,role},config);
             console.log(data)
             toast.success("Psychologist register successfully");
@@ -56,7 +57,7 @@ const PostUser = () => {
   return (
     <form onSubmit={registerPsych}>
     <FormGroup className={classes.container}>
-        <Typography variant='h4'>Post Psychiatrist</Typography>
+        <Typography variant='h4'>Post Psychologist</Typography>
         <FormControl>
             <InputLabel>FirstName</InputLabel>
            <Input value={firstName} onChange={(e)=> setfirstName(e.target.value)}></Input>
@@ -87,4 +88,4 @@ const PostUser = () => {
   )
 }
 
-export default PostUser;
+export default PostUser

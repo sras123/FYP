@@ -30,7 +30,7 @@ const Main = () => {
 		<div class= "content">
 			<h1>Get Online Counseling</h1>
 			<div>
-			<Link to="/bookingpage" >
+			<Link to="/doctors" >
 				<button type="button"><span></span> Book Now</button>
 			</Link>
 			</div>

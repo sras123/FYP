@@ -9,11 +9,14 @@ import AboutUs from "./Pages/AboutUs";
 import Contact from "./Pages/Contact";
 import Reviews from "./Pages/Reviews";
 import AdminPanel from "./Pages/AdminPanel";
-import BookingPage from "./Pages/BookingPage";
 import Room from "./Pages/Room";
 import UpdatUser from "./Pages/AdminPanel/UpdateUser";
 import PostUser from "./Pages/AdminPanel/PostUser";
 import ApplyDoctor from "./Pages/ApplyDoctor";
+import PostDoctor from "./Pages/AdminPanel/PostDoctor";
+import Doctor from "./Pages/Doctor/Doctor";
+import DetailDoctor from "./Pages/Doctor/DeatilDoctor";
+import Cart from "./Pages/Cart/Cart";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -31,11 +34,14 @@ function App() {
             <Route exact path="/forgot-password" component={ForgotPassword}/>
             <Route exact path="/password-reset/:id/:token" component={PasswordReset}/>
             <Route exact path="/adminpanel" component={AdminPanel}/>
-            <Route exact path="/bookingpage" component={BookingPage}/>
             <Route exact path="/room" component={Room}/>
             <Route exact path="/updateUser/:id" component={UpdatUser}/>
             <Route exact path="/postUser" component={PostUser}/>
             <Route exact path="/apply" component={ApplyDoctor}/>
+            <Route exact path="/postDoctor" component={PostDoctor}/>
+            <Route exact path= "/doctors" component={Doctor}/>
+            <Route exact path="/detailDoctor/:id" component={DetailDoctor}/>
+            <Route exact path="/appoint" component={Cart}/>
         </Switch>
         
         </>

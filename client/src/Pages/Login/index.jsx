@@ -22,7 +22,7 @@ const Login = () => {
             const { data: res } = await axios.post(url, data);
             localStorage.setItem("token", res.token);
             const message = res;
-            toast(`${message}`)
+            toast("logged in successfully")
             history.push("/");
         } catch (error) {
             if (
