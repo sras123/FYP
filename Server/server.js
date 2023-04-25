@@ -6,11 +6,16 @@ const morgan = require("morgan");
 const app = express();
 const http = require("http");
 const{Server} = require("socket.io");
+const path = require("path");
+const fileUpload = require('express-fileupload')
 
 app.use(morgan("tiny"));
 app.use(express.json())
 app.use(cors({ origin: "*" }));
 app.use(express.urlencoded({extended: true}))
+app.use(fileUpload({
+  useTempFiles: true
+}))
 
 //routes
 const authorizeRoute = require('./Routes/authorizeRoute')
@@ -18,6 +23,15 @@ app.use('/', authorizeRoute)
 
 const userRoute = require('./Routes/userRoute')
 app.use('/', userRoute)
+
+const doctorCategoryRoute = require('./Routes/doctorCategoryRouter')
+app.use('/', doctorCategoryRoute)
+
+const doctor = require('./Routes/doctorRouter')
+app.use('/',doctor)
+
+const upload = require('./Routes/upload')
+app.use('/',upload)
 
 // Socket.IO
 const server = http.createServer(app);

@@ -43,6 +43,10 @@ const userSchema = new mongoose.Schema({
         enum:["admin", "psych", "patient"],
         lowercase: true,
         default: "patient"
+    },
+    cart:{
+        type: Array,
+        default: []
     }
 
 }, {timestamps: true})
