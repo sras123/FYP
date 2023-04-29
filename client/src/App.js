@@ -17,6 +17,9 @@ import PostDoctor from "./Pages/AdminPanel/PostDoctor";
 import Doctor from "./Pages/Doctor/Doctor";
 import DetailDoctor from "./Pages/Doctor/DeatilDoctor";
 import Cart from "./Pages/Cart/Cart";
+import UpdateCategory from "./Pages/AdminPanel/UpdateCategory";
+import PostCategory from "./Pages/AdminPanel/PostCategory";
+import Category from "./Pages/AdminPanel/Category";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -42,6 +45,9 @@ function App() {
             <Route exact path= "/doctors" component={Doctor}/>
             <Route exact path="/detailDoctor/:id" component={DetailDoctor}/>
             <Route exact path="/appoint" component={Cart}/>
+            <Route exact path="/updateCategory/:id" component={UpdateCategory}/>
+            <Route exact path="/postCategory" component={PostCategory}/>
+            <Route exact path="/category" component={Category}/>
         </Switch>
         
         </>

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import UserAPI from '../../api/UserAPI';
+import KhaltiCheckout from "khalti-checkout-web";
+import Helmet from "helmet";
+import { KhaltiButton } from './KhaltiButton';
 
 function Cart() {
     const [token, setToken] = useState(false)
@@ -16,11 +19,12 @@ function Cart() {
 
     const state = {
         token : [token, setToken],
-        userAPI : UserAPI(token)
+        userAPI : UserAPI(localStorage.getItem('token'))
     }
 
     const [appoint, setAppoint] = state.userAPI.appoint
-    const [tok] = state.token
+    const removeAppointment = state.userAPI.removeAppointment
+    const [tok] = localStorage.getItem('token')
     const [total, setTotal] = useState(0)
 
     useEffect(()=>{
@@ -34,12 +38,7 @@ function Cart() {
         getTotal()
     },[appoint])
     
-    const addAppointment = async(appoint)=>{
-        await axios.patch('http://localhost:8080/addAppointment',{appoint},{
-            "Content-Type" : "application/json",
-            "Authorization": `Bearer ${tok}`
-        })
-    }
+  
     const increment = (id)=>{
         appoint.forEach(doc=>{
           if(doc._id === id){
@@ -58,32 +57,22 @@ function Cart() {
         setAppoint([...appoint])
       }
 
-      const removeAppointment = id =>{
-        if(window.confirm("Do you want to delete appointment with this doctor?")){
-          appoint.forEach((doc, index)=>{
-            if(doc._id === id){
-              appoint.splice(index,1)
-            }
-          })
-    
-          setAppoint([...appoint])
-          addAppointment(appoint)
-        }
-      }
-    
+   
+
       if(appoint.length === 0){
         return <h2 style={{textAlign: "center", fontSize: "5rem"}}>Appointment Empty</h2>
       }
   return (
+    <>
     <div>
     {
       appoint.map(doctor => (
         <div className="detail cart" key={doctor._id}>
-        <img src={doctor.images.url} alt=""/>
+         <img src={doctor.images.url} alt=""/> 
         <div className="box-detail">
             <h2>{doctor.title}</h2>
             <h3>{doctor.name}</h3>
-            <h3> ${doctor.price * doctor.available}</h3>
+            <h3> Rs. {doctor.price * doctor.available}</h3>
           <p>{doctor.description}</p>
           <p>{doctor.content}</p>
           <p>Available: {doctor.available}</p>
@@ -100,9 +89,14 @@ function Cart() {
     }
     <div className='total'>
       <h3>Total: $ {total}</h3>
+    <button id='payment-button' onClick={KhaltiButton}>Khalti checkout</button>
     </div>
   </div>
-   
+  <Helmet>
+  <script src={`${process.env.PUBLIC_URL}/js/Button.js`}  type="text/javascript"></script>
+  </Helmet>
+
+  </>
   )
 }
 

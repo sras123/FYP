@@ -21,7 +21,7 @@ const Reviews=() => {
 				<li><a href="/aboutUs">About Us</a></li>
 			    <li><a href="/contact">Contact</a></li>
 			    <li><a href="/reviews">Reviews</a></li>
-			    <li><a href="/signup">Signup</a></li>
+			    
 				<li><a href="/login" onclick={handleLogout}>logout</a></li>
 			</ul>  
         </div>

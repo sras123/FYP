@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, Link } from 'react';
 import {FormControl, FormGroup, InputLabel,Input,Button,makeStyles, Typography} from '@material-ui/core';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -98,7 +98,9 @@ const UpdatUser = () => {
 		</style>
 		
 		<div class="navbar">
-			<h1>Admin Panel</h1>
+        <Link to="/adminpanel">
+                    <h1>Admin Panel</h1>
+                </Link>
 			<ul>
 				<li><a href="/adminpanel">Users</a></li>
 			    <li><a href="/contact">Reviews</a></li>
