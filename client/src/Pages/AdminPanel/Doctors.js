@@ -102,6 +102,7 @@ const Doctors = () => {
             <TableCell>Image</TableCell>
             <TableCell>Category</TableCell>
             <TableCell>Functionality</TableCell>
+            <TableCell><Button variant="contained" color="primary" style={{margin:10}} component={Link}to={'/postDoctor'}>Add Doctor</Button></TableCell>
             </TableRow>
         </TableHead>
     
@@ -120,10 +121,11 @@ const Doctors = () => {
                         <TableCell>{doctor.content}</TableCell>
                         <TableCell></TableCell>
                         <TableCell>{doctor.category}</TableCell> 
+                       
                         <TableCell>
-                            <Button variant="contained" color="primary" style={{margin:10}}>Edit</Button>
+                            <Button variant="contained" color="primary" style={{margin:10}} component={Link}to={`/updateDoctor/${doctor._id}`}>Edit</Button>
                             <Button variant="contained" color="secondary" onClick={()=> deleteDoctor(doctor._id)}>Delete</Button>
-                            <Button variant="contained" color="primary" style={{margin:10}} component={Link}to={'/postDoctor'}>Add Doctor</Button>
+                            {/* <Button variant="contained" color="primary" style={{margin:10}} component={Link}to={'/postDoctor'}>Add Doctor</Button> */}
                         </TableCell>
                     </TableRow>
                     )
