@@ -33,6 +33,9 @@ app.use('/',doctor)
 const upload = require('./Routes/upload')
 app.use('/',upload)
 
+const reviewRoute = require('./Routes/reviewRoute')
+app.use('/',reviewRoute)
+
 // Socket.IO
 const server = http.createServer(app);
 

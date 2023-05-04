@@ -1,7 +1,19 @@
-import React from "react";
-import { Link} from "react-router-dom";
+import React, { useEffect,useState } from "react";
+import axios from "axios";
 
 const Reviews=() => {
+    const[reviews,setReviews] = useState([])
+    useEffect(()=>{
+        getReviews()
+
+    },[])
+
+    const getReviews = async()=>{
+        const res = await axios.get('http://localhost:8080/reviews')
+        console.log(res.data)
+        setReviews(res.data)
+    }
+
     const handleLogout = () => {
 		localStorage.removeItem("token");
 		window.location.reload();
@@ -14,14 +26,12 @@ const Reviews=() => {
 		</style>
 
 		<div class="navbar">
-            <Link to="/" >
-                <img src="/images/logo.png" class="logo"></img>
-		    </Link>
+			<img src="/images/logo.png" class="logo"></img>
 			<ul>
 				<li><a href="/aboutUs">About Us</a></li>
 			    <li><a href="/contact">Contact</a></li>
 			    <li><a href="/reviews">Reviews</a></li>
-			    
+			    <li><a href="/signup">Signup</a></li>
 				<li><a href="/login" onclick={handleLogout}>logout</a></li>
 			</ul>  
         </div>
@@ -31,54 +41,68 @@ const Reviews=() => {
                 <h1>Client Reviews</h1>
                 <div class="border"></div>
                 <div class="row">
-                    <div class="col">
-                        <div class="Review">
-                        <img src="/images/IMG_2369.JPG" alt=""></img>
-                        <div class="name">Full Name</div>
-                        <div class="stars">
-                            <i class= "fas fa-star"></i>
-                            <i class= "fas fa-star"></i>
-                            <i class= "fas fa-star"></i>
-                            <i class= "fas fa-star"></i>
-                            <i class= "far fa-star"></i>
-                        </div>
-                        <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        </p>
-                    </div> 
+                    {reviews && reviews.map((review)=>{
+                        return(
+                            <div class="col">
+                            <div class="Review">
+                            <img src={review.images.url} alt=''/>
+                            <div class="name">{review.Name}</div>
+                            <div class="stars">
+                            <div className="stars">
+                                {review.Rating === 5 && (
+                                    <>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    </>
+                                )}
+                                {review.Rating === 4 && (
+                                    <>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    </>
+                                )}
+                                {review.Rating === 3 && (
+                                    <>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    </>
+                                )}
+                                {review.Rating === 2 && (
+                                    <>
+                                    <i className="fas fa-star"></i>
+                                    <i className="fas fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    </>
+                                )}
+                                {review.Rating === 1 && (
+                                    <>
+                                    <i className="fas fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    <i className="far fa-star"></i>
+                                    </>
+                                )}
                 </div>
-                <div class="col">
-                        <div class="Review">
-                        <img src="/images/IMG_1890.JPG" alt=""></img>
-                        <div class="name">Full Name</div>
-                        <div class="stars">
-                            <i class= "fas fa-star"></i>
-                            <i class= "fas fa-star"></i>
-                            <i class= "fas fa-star"></i>
-                            <i class= "far fa-star"></i>
-                            <i class= "far fa-star"></i>
-                        </div>
-                        <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        </p>
-                </div> 
-                </div> 
-                <div class="col">
-                        <div class="Review">
-                        <img src="/images/IMG_1289.JPG" alt=""></img>
-                        <div class="name">Full Name</div>
-                        <div class="stars">
-                            <i class= "fas fa-star"></i>
-                            <i class= "fas fa-star"></i>
-                            <i class= "fas fa-star"></i>
-                            <i class= "fas fa-star"></i>
-                            <i class= "fa fa-star"></i>
-                        </div>
-                        <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        </p>
-                </div> 
-                </div>
+                            </div>
+                            <p>
+                                {review.description}
+                            </p>
+                        </div> 
+                    </div>
+                        )
+                        })}
             </div>
         </div>
         </div>

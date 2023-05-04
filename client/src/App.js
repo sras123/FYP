@@ -22,6 +22,7 @@ import PostCategory from "./Pages/AdminPanel/PostCategory";
 import Category from "./Pages/AdminPanel/Category";
 import Doctors from "./Pages/AdminPanel/Doctors";
 import UpdateDoctor from "./Pages/AdminPanel/UpdateDoctor";
+import AddReview from "./Pages/Reviews/AddReview";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -52,6 +53,7 @@ function App() {
             <Route exact path="/category" component={Category}/>
             <Route exact path="/alldoctors" component={Doctors}/>
             <Route exact path="/updateDoctor/:id" component={UpdateDoctor}/>
+            <Route exact path="/addReview" component={AddReview}/>
         </Switch>
         
         </>
