@@ -1,8 +1,11 @@
 import React, { useEffect,useState } from "react";
 import axios from "axios";
+import { useHistory} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Reviews=() => {
     const[reviews,setReviews] = useState([])
+    const history = useHistory();
     useEffect(()=>{
         getReviews()
 
@@ -105,6 +108,7 @@ const Reviews=() => {
                         })}
             </div>
         </div>
+        <Link to={'/addReview'}><button className="btn">Add Review</button></Link> 
         </div>
         <div class="footer">
 			<div class="social">

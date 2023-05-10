@@ -30,3 +30,15 @@
 .total h3{
     color: crimson;
 }
+
+#payment-button{
+    background-color: #5e338d;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 10px;
+
+}

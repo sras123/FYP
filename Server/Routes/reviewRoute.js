@@ -12,6 +12,9 @@ router.route('/reviews')
 router.route('/reviews/:id')
 .patch(reviewCtrl.updateReview)
 
+router.route('/reviews/:id')
+.delete(reviewCtrl.deleteReview)
+
 
 
 module.exports = router

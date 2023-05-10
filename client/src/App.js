@@ -23,6 +23,10 @@ import Category from "./Pages/AdminPanel/Category";
 import Doctors from "./Pages/AdminPanel/Doctors";
 import UpdateDoctor from "./Pages/AdminPanel/UpdateDoctor";
 import AddReview from "./Pages/Reviews/AddReview";
+import AllReviews from "./Pages/AdminPanel/AllReviews";
+import UpdateReview from "./Pages/AdminPanel/UpdateReviews";
+import Applications from "./Pages/AdminPanel/Applications";
+import UpdateApplication from "./Pages/AdminPanel/UpdateApplication";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -54,6 +58,10 @@ function App() {
             <Route exact path="/alldoctors" component={Doctors}/>
             <Route exact path="/updateDoctor/:id" component={UpdateDoctor}/>
             <Route exact path="/addReview" component={AddReview}/>
+            <Route exact path="/allReviews" component={AllReviews}/>
+            <Route exact path="/updateReview/:id" component={UpdateReview}/>
+            <Route exact path="/applications" component={Applications}/>
+            <Route exact path="/updateApplication/:id" component={UpdateApplication}/>
         </Switch>
         
         </>

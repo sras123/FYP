@@ -1,4 +1,5 @@
 import KhaltiCheckout from "khalti-checkout-web";
+
 export function KhaltiButton(){
 let config = {
     // replace this key with yours

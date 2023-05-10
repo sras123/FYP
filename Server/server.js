@@ -36,6 +36,10 @@ app.use('/',upload)
 const reviewRoute = require('./Routes/reviewRoute')
 app.use('/',reviewRoute)
 
+const applyDoctorRoute = require('./Routes/applyDoctor')
+app.use('/', applyDoctorRoute)
+
+
 // Socket.IO
 const server = http.createServer(app);
 
@@ -63,14 +67,14 @@ io.on("connection", (socket) => {
   });
 });
 
-//STRIPE
-if (process.env.NODE_ENV !== 'production'){
-  require('dotenv').config() 
-}
-const stripeSecretKey= process.env.STRIPE_SECRET_KEY
-const stripePublicKey= process.env.STRIPE_PUBLIC_KEY
+// //STRIPE
+// if (process.env.NODE_ENV !== 'production'){
+//   require('dotenv').config() 
+// }
+// const stripeSecretKey= process.env.STRIPE_SECRET_KEY
+// const stripePublicKey= process.env.STRIPE_PUBLIC_KEY
 
-console.log(stripeSecretKey,stripePublicKey)
+// console.log(stripeSecretKey,stripePublicKey)
 
 
 //Port for Server

@@ -48,6 +48,11 @@ const getReviews = async(req,res,next)=>{
 }
 
 const updateReview=async(req,res)=>{
+    let token = tokens(req);
+    let userId = await tokenId(token);
+    let user = await User.findById(userId)
+    let role = user.role
+    if(role === "admin"){
     try{
         const {Name,description,Rating,images} = req.body;
         await Review.findOneAndUpdate({_id: req.params.id}, {Name,description,Rating,images})
@@ -55,10 +60,35 @@ const updateReview=async(req,res)=>{
     }catch(err){
         return res.status(500).json({msg: err.message})
     }
+}else{
+    return res.json({msg:"need to be admin"})
+}
+
+}
+
+const deleteReview = async(req,res,next)=>{
+    let token = tokens(req);
+    let userId = await tokenId(token);
+    let user = await User.findById(userId)
+    let role = user.role
+    if(role === "admin"){
+        try{
+            await Review.findByIdAndDelete(req.params.id)
+            res.json({msg: "Deleted a review"})
+
+        }catch(err){
+            return res.status(500).json({msg: err.message})
+        }
+    }
+    else{
+        return res.json({msg:"need to be admin"})
+    }
+       
 }
 
 module.exports={
     addReview,
     getReviews,
-    updateReview
+    updateReview,
+    deleteReview
 }
