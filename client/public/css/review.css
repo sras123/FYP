@@ -88,8 +88,8 @@
 }
 
 .Review img{
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 150px;
   border-radius: 50%;
 }
 
@@ -104,18 +104,37 @@
   margin-bottom: 20px;
 }
 
-.btn{
-background-color: #c2b280;
-font-size: 20px;
-border: 2px solid #000;
-border-radius: 30px;
-padding: 16px;
-border: none;
-color:#434343
+
+button{
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #c2b280;
+  background: transparent ;
+  color: #c2b280;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-.btn:hover{
-background-color: #aaa576;
+span{
+  background:#c2b280;
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left:0;
+  bottom:0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button:hover span{
+  width:100%;
 }
 
 @media screen and(max-width:960px){

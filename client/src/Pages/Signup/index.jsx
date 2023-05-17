@@ -12,8 +12,7 @@ const Signup = () => {
 		lastName: "",
 		email: "",
 		password: "",
-		confirmPassword: "",
-		role: ""
+		confirmPassword: ""
 	});
 	const history= useHistory();
 	const [error, setError] = useState("");
@@ -104,14 +103,7 @@ const Signup = () => {
 							className={styles.input}
 						/>
 
-							<input
-							type="text"
-							placeholder="role e.g.patient"
-							name="role"
-							onChange={handleChange}
-							value={data.role}
-							className={styles.input}
-						/>
+							
 						<button type="submit" className={styles.green_btn}>
 							Sign Up
 						</button>

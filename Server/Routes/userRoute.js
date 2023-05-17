@@ -1,6 +1,5 @@
 const express = require('express')
 
-
 const{
     getAllUser,
     getUser,
@@ -10,7 +9,7 @@ const{
     getUserInfo,
     deleteAppointment,
     addAppointment
-    // applyDoctorcontroller,
+    
 } = require('../controller/userController')
 
 const{
@@ -33,8 +32,5 @@ router.get('/getUserInfo', getUserInfo)
 router.patch('/addAppointment', tokenValidation, addAppointment)
 router.patch('/deleteAppointment', tokenValidation, deleteAppointment)
 
-
-// //Apply doctor ||Post
-// router.post("/apply-doctor", tokenValidation, authorization('patient'), applyDoctorcontroller )
 
 module.exports = router

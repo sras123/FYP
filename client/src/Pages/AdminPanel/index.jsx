@@ -96,7 +96,7 @@ const AdminPanel = () => {
 				<ul>
 					<li><a href="/adminpanel">Users</a></li>
 					<li><a href="/category">Category</a></li>
-					<li><a href="#">Doctors</a></li>
+					<li><a href="/alldoctors">Psychiatrists</a></li>
 					<li><a href="/Applications">Applications</a></li>
 					<li><a href="/AllReviews">Reviews</a></li>
 					<li><a href="/login" onclick={handleLogout}>logout</a></li>

@@ -15,14 +15,13 @@ const Main = () => {
 		<div class="banner">
 		<div class="navbar">
 			<Link to="/" >
-				<img src="/images/logo.png" class="logo"></img>
+				<img src="/images/logo2.png" class="logo"></img>
 			</Link>
 			<ul>
 				<li><a href="/aboutUs">About Us</a></li>
 				<li><a href="/doctors">Doctors</a></li>
 			    <li><a href="/contact">Contact</a></li>
 			    <li><a href="/reviews">Reviews</a></li>
-			    
 				<li><a href="/login" onclick={handleLogout}>logout</a></li>
 				
 			
@@ -33,6 +32,11 @@ const Main = () => {
 			<div>
 			<Link to="/doctors" >
 				<button type="button"><span></span> Book Now</button>
+			</Link>
+			</div>
+			<div>
+			<Link to="/apply" >
+				<button type="button"><span></span> Apply as Psychiatrist</button>
 			</Link>
 			</div>
 		</div>

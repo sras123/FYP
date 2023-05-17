@@ -6,16 +6,14 @@ const morgan = require("morgan");
 const app = express();
 const http = require("http");
 const{Server} = require("socket.io");
-const path = require("path");
 const fileUpload = require('express-fileupload')
+
 
 app.use(morgan("tiny"));
 app.use(express.json())
 app.use(cors({ origin: "*" }));
 app.use(express.urlencoded({extended: true}))
-app.use(fileUpload({
-  useTempFiles: true
-}))
+app.use(fileUpload({ useTempFiles: true}))
 
 //routes
 const authorizeRoute = require('./Routes/authorizeRoute')
@@ -38,6 +36,9 @@ app.use('/',reviewRoute)
 
 const applyDoctorRoute = require('./Routes/applyDoctor')
 app.use('/', applyDoctorRoute)
+
+const khaltiRoutes= require('./Routes/khaltiRoutes')
+app.use('/', khaltiRoutes);
 
 
 // Socket.IO
@@ -66,15 +67,6 @@ io.on("connection", (socket) => {
     console.log("User Disconnected", socket.id);
   });
 });
-
-// //STRIPE
-// if (process.env.NODE_ENV !== 'production'){
-//   require('dotenv').config() 
-// }
-// const stripeSecretKey= process.env.STRIPE_SECRET_KEY
-// const stripePublicKey= process.env.STRIPE_PUBLIC_KEY
-
-// console.log(stripeSecretKey,stripePublicKey)
 
 
 //Port for Server

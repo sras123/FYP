@@ -1,37 +1,95 @@
-.cart{
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 180px;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #c2b280;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #979268;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.cart {
     position: relative;
     border: 1px solid #ccc;
     transform: scaleY(0.98);
 }
-.amount span{
+
+.amount span {
     color: crimson;
     padding: 0 20px;
 }
-.amount button{
+
+.amount button {
     width: 40px;
     height: 40px;
     border: 1px solid #777;
 }
-.delete{
+
+.delete {
     position: absolute;
-    top:0;
+    top: 0;
     right: 5px;
     color: crimson;
     font-weight: 900;
     cursor: pointer;
 }
-.total{
+
+.total {
     width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.total h3{
-    color: crimson;
+
+.total h3 {
+    color: red;
+    letter-spacing: 2px;
+    font-weight: 2rem;
 }
 
-#payment-button{
+
+#payment-button {
     background-color: #5e338d;
     color: #fff;
     font-size: 18px;
@@ -42,3 +100,64 @@
     margin-right: 10px;
 
 }
+.footer{
+    padding: 40px;
+    background-color:#ffff;
+  }
+  
+  .footer .social{
+    text-align: center;
+    padding-bottom: 25px;
+    color: #4b4c4d;
+  }
+  
+   .footer .social a{
+    font-size:24px;
+    color: inherit;
+    border: 1px solid #ccc;
+    width:40px;
+    height:40px;
+    line-height:38px;
+    display:inline-block;
+    text-align: center;
+    border-radius:50%; 
+    margin:0 8px;
+    opacity: 0.75;
+   }
+  
+   .footer .social a:hover{
+    opacity: 1.50;
+   }
+  
+  .footer ul{
+    margin-top:0;
+    padding: 0;
+    list-style: none;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+    text-align:center;
+  }
+  
+  .footer ul li a{
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+  }
+  
+  .footer ul li{
+    display: inline-block;
+    padding: 0 15px;
+  }
+  
+  .footer ul li a:hover{
+    opacity: 1.65;
+  }
+  
+  .footer .Copyright{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color:#848482;
+  
+  }

@@ -84,7 +84,7 @@ const Doctors = () => {
                 <ul>
                     <li><a href="/adminpanel">Users</a></li>
                     <li><a href="/category">Category</a></li>
-                    <li><a href="#">Doctors</a></li>
+                    <li><a href="/allDoctors">Psychiatrists</a></li>
                     <li><a href="/Applications">Applications</a></li>
                     <li><a href="/AllReviews">Reviews</a></li>
                     <li><a href="/login" onclick={handleLogout}>logout</a></li>
@@ -105,7 +105,7 @@ const Doctors = () => {
                         <TableCell>Image</TableCell>
                         <TableCell>Category</TableCell>
                         <TableCell>Functionality</TableCell>
-                        <TableCell><Button variant="contained" color="primary" style={{ margin: 10 }} component={Link} to={'/postDoctor'}>Add Doctor</Button></TableCell>
+                        <TableCell><Button variant="contained" color="primary" style={{ margin: 10 }} component={Link} to={'/postDoctor'}>Add Psychiatrist</Button></TableCell>
                     </TableRow>
                 </TableHead>
 

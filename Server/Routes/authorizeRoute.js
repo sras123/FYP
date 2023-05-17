@@ -5,7 +5,6 @@ const{
     login,
     verifiedVerification,
     tokenValidation,
-    authorization
 } = require('../controller/authorizeController')
 
 const userValidation = require('../validation/validation')

@@ -52,7 +52,7 @@ function DetailDoctor() {
       </style>
       <div class="navbar">
       <Link to="/" >
-          <img src="/images/logo.png" class="logo"></img>
+          <img src="/images/logo2.png" class="logo"></img>
         </Link>
         <ul>
           <li><a href="/aboutUs">About Us</a></li>

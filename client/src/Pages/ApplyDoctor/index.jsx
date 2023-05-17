@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { Link, useNagivate } from "react-router-dom";
-// import{userSelector, useDispatch} from 'react-redux';
-// import {showLoading, hideLoading} from '../../redux/features/alertSlice'
+
 import axios from 'axios'
 import { toast } from "react-toastify";
  
@@ -74,13 +73,14 @@ const ApplyDoctor = () => {
 
             <div class="navbar">
                 <Link to="/" >
-                    <img src="/images/logo.png" class="logo"></img>
+                    <img src="/images/logo2.png" class="logo"></img>
                 </Link>
                 <ul>
                     <li><a href="/aboutUs">About Us</a></li>
+                    <li><a href="/doctors">Doctor</a></li>
                     <li><a href="/contact">Contact</a></li>
                     <li><a href="/reviews">Reviews</a></li>
-                    <li><a href="/signup">Signup</a></li>
+                   
                     <li><a href="/login" onclick={handleLogout}>logout</a></li>
 
 

@@ -24,6 +24,24 @@ const tokenResponse = (user, statuscode, res) => {
 const register = async (req, res, next) => {
     const registerResponse = req.body
     const existingUser = await User.findOne({email: registerResponse.email})
+    const mailOptions={
+        from :"My Psychiatrist",
+        to : "Verify Email first",
+        subject: "You can join a chat room to get counseling",
+        html:`
+        <div style="max-width: 700px; margin:auto; border: 10px solid #ddd; padding: 50px 20px; font-size: 110%;">
+        <h2 style="text-align: center; text-transform: uppercase;color: teal;">Join the chat room</h2>
+        <pYou can join and chat with the psychiatrist and get counseling after payment using roomId: 123
+        </p>
+        
+        <a href="http://localhost:3000/room" style="background: crimson; text-decoration: none; color: white; padding: 10px 20px; margin: 10px 0; display: inline-block;">Room</a>
+      
+        <p>If the button doesn't work for any reason, you can also click on the link below:</p>
+      
+        <div>Join room using that room id: http://localhost:3000/room </div>
+        </div>
+        `
+      }
     if(!existingUser){
         try{
             if(registerResponse.password === registerResponse.confirmPassword){
@@ -44,7 +62,7 @@ const register = async (req, res, next) => {
                         const url = `${process.env.BASE_URL}users/${registration._id}/verify/${tokens.token}`
                         
                         console.log(url)
-                        await sendEmail(registration.email, "verify Email", url)
+                        await sendEmail(registration.email, `From. ${mailOptions.from}. Subject. ${mailOptions.subject}. to.${mailOptions.to}`, `Verify Email. ${url} .Room ID. ${mailOptions.html}`)
                         console.log("Email has been sent for verification")
                         return res.json("Email has been send for verification")
                     }

@@ -31,6 +31,7 @@ function Chat({ socket, username, room }) {
 
   return (
     <>
+    <h1>Now you can start your session </h1>
     <style>
     @import url('/css/chatting.css');
     </style>
