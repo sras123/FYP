@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
         maxlength: [255, "limit Crossed"],
         required: true,
         unique: true,
-        validate: [validator.isEmail, "emter the valid email address "]
+        validate: [validator.isEmail, "enter the valid email address "]
     },
     password:{
         type: String,

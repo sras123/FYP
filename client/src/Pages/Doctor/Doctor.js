@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState} from 'react';
+import { useHistory,Link } from 'react-router-dom';
 import axios from 'axios';
 import UserAPI from '../../api/UserAPI';
 const URL = "http://localhost:8080/doctors"
-
-
 
 function Doctor() {
   const [token, setToken] = useState(localStorage.getItem('token'))
@@ -22,11 +20,11 @@ function Doctor() {
     token: [token, setToken],
     userAPI: UserAPI(token)
   }
-  const handleLogout = () => {
-    console.log("from handle logout")
-    localStorage.removeItem("token");
-    window.location.reload();
-  };
+  const history = useHistory()
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		history.push("/login");
+	};
   const [doctors, setDoctors] = useState(null);
   const [refresh, setRefresh] = useState(false);
   const addAppointment = state.userAPI.addAppointment
@@ -57,7 +55,7 @@ function Doctor() {
         <ul>
           <li><a href="/aboutUs">About Us</a></li>
           <li><a href="/doctors">Doctors</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/room">Room</a></li>
           <li><a href="/reviews">Reviews</a></li>
           <li><a href="/login" onclick={handleLogout}>logout</a></li>
         </ul>
@@ -97,9 +95,8 @@ function Doctor() {
 			</div>
 			<ul class="list">
 				<li><a href="/aboutUs">About Us</a></li>
-			    <li><a href="/contact">Contact</a></li>
 			    <li><a href="/reviews">Reviews</a></li>
-				<li><a href="#">Privacy Policy</a></li>
+					<li><a href="/privacypolicy">Privacy Policy</a></li>
 			</ul>
 			<p class="Copyright">
 			@2023 My Psychiatrist
@@ -110,4 +107,4 @@ function Doctor() {
   )
 }
 
-export default Doctor
+export default Doctor;

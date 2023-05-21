@@ -6,7 +6,7 @@ import Emailverify from "./Pages/EmailVerify";
 import ForgotPassword from "./Pages/ForgotPassword";
 import PasswordReset from "./Pages/PasswordReset";
 import AboutUs from "./Pages/AboutUs";
-import Contact from "./Pages/Contact";
+import Privacypolicy from "./Pages/Privacypolicy";
 import Reviews from "./Pages/Reviews";
 import AdminPanel from "./Pages/AdminPanel";
 import Room from "./Pages/Room";
@@ -38,7 +38,7 @@ function App() {
 			<Route exact path="/signup" component={Signup } />
 			<Route exact path="/login" component={Login } />
             <Route exact path="/aboutUs" component={AboutUs } />
-            <Route exact path="/contact" component={Contact } />
+            <Route exact path="/privacypolicy" component={Privacypolicy } />
             <Route exact path="/reviews" component={Reviews } />
             <Route exact path="/users/:id/verify/:token" component={Emailverify } />
             <Route exact path="/forgot-password" component={ForgotPassword}/>

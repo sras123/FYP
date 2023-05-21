@@ -1,7 +1,7 @@
 import React from 'react'
 import {Table, TableBody, TableCell, TableHead, TableRow, makeStyles, Button} from "@material-ui/core";
 import axios from "axios";
-import {Link, useParams} from 'react-router-dom';
+import {Link, useParams,useHistory} from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -25,7 +25,6 @@ const useStyles = makeStyles({
   });
 
 const Applications = () => {
-    const {id} = useParams();
     const [applications, setApplication] = useState([]);
     const classes = useStyles();
     const [refresh, setRefresh] = useState(false);
@@ -64,10 +63,12 @@ const Applications = () => {
         setRefresh(!refresh)
     }
 
-    const handleLogout = () => {
+    const history = useHistory()
+	const handleLogout = () => {
 		localStorage.removeItem("token");
-		window.location.reload();
+		history.push("/login");
 	};
+
 
   return (
     <>
@@ -85,7 +86,7 @@ const Applications = () => {
                     <li><a href="/alldoctors">Psychiatrists</a></li>
                     <li><a href="/Applications">Applications</a></li>
                     <li><a href="/AllReviews">Reviews</a></li>
-                    <li><a href="/login" onclick={handleLogout}>logout</a></li>
+                    <li><a href="/login" onClick={handleLogout}>logout</a></li>
 
 
                 </ul>
@@ -124,7 +125,7 @@ const Applications = () => {
                         <TableCell>
                             {/* <Button variant="contained" color="primary"style={{margin:10}} component={Link} to={`/updateApplication/${application._id}`}>Edit</Button> */}
                             <Button variant="contained" color="secondary" onClick={()=> deleteApplication(application._id)} >Delete</Button>
-                            <Button variant="contained" color="primary" component={Link} to={'/postuser'}>Approve</Button>
+                            <Button variant="contained" color="primary" component={Link} to={'/postUser'}>Approve</Button>
 
                         </TableCell>
                     </TableRow>
@@ -136,19 +137,7 @@ const Applications = () => {
     </TableBody>
     </Table>
 
-    <div class="footer">
-        <div class="social">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        <ul class="list">
-            <li><a href="/allusers">Users</a></li>
-            <li><a href="/reviews">Review</a></li>
-            <li><a href="/appoint">Appointment</a></li>
-            <li><a href="/therapy">Therapy</a></li>
-        </ul>
-    </div>
+    
 </>
   )
 }

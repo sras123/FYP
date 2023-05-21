@@ -2,7 +2,6 @@ import React, { useEffect,  handleLogout, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import UserAPI from '../../api/UserAPI';
-import KhaltiCheckout from "khalti-checkout-web";
 import Helmet from "helmet";
 import { KhaltiButton } from './KhaltiButton';
 
@@ -25,8 +24,9 @@ function Cart() {
 
   const [appoint, setAppoint] = state.userAPI.appoint
   const removeAppointment = state.userAPI.removeAppointment
-  const [tok] = localStorage.getItem('token')
-  const [total, setTotal] = useState(0)
+  const [tok] = localStorage.getItem('token');
+  const [total, setTotal] = useState(0);
+  const [totalInPaisa, setTotalInPaisa]= useState(0);
 
   useEffect(() => {
     const getTotal = () => {
@@ -35,7 +35,11 @@ function Cart() {
       }, 0)
 
       setTotal(total)
-    }
+
+      //convert total amount from rupees to paisa
+      const totalInPaisa= total*100;
+      setTotalInPaisa(totalInPaisa);
+    };
     getTotal()
   }, [appoint])
 
@@ -61,8 +65,21 @@ function Cart() {
 
 
   if (appoint.length === 0) {
-    return <h2 style={{ textAlign: "center", fontSize: "5rem" }}>Appointment Empty</h2>
+    return (
+      <h2 style={{
+        textAlign: "center",
+        fontSize: "5rem",
+        color: "#ffffff",
+        backgroundColor: "#333333",
+        padding: "2rem",
+        borderRadius: "8px",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+      }}>
+        Appointment Empty
+      </h2>
+    );
   }
+  
   return (
     <> <style>
       @import url('/css/aboutus.css');
@@ -75,9 +92,9 @@ function Cart() {
         <ul>
           <li><a href="/aboutUs">About Us</a></li>
           <li><a href="/doctors">Doctor</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/room">Room</a></li>
           <li><a href="/reviews">Reviews</a></li>
-          <li><a href="/login" onclick={handleLogout}>logout</a></li>
+          <li><a href="/login" onClick={handleLogout}>logout</a></li>
         </ul>
       </div>
       
@@ -106,7 +123,7 @@ function Cart() {
         }
         <div className='total'>
           <h3>Total: Rs {total}</h3>
-          <button id='payment-button' onClick={KhaltiButton}>Khalti checkout</button>
+          <button id='payment-button'  onClick={() => KhaltiButton(totalInPaisa)}>Khalti checkout</button>
         </div>
       </div>
       <Helmet>
@@ -121,9 +138,8 @@ function Cart() {
         </div>
         <ul class="list">
           <li><a href="/aboutUs">About Us</a></li>
-          <li><a href="/contact">Contact</a></li>
           <li><a href="/reviews">Reviews</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="/privacypolicy">Privacy Policy</a></li>
         </ul>
         <p class="Copyright">
           @2023 My Psychiatrist

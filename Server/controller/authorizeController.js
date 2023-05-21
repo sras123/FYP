@@ -5,7 +5,7 @@ const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const util = require('util')
-const { use } = require('../Routes/authorizeRoute')
+
 
 const signToken = id => {
     return jwt.sign({id}, "secret", {expiresIn: "1h"})

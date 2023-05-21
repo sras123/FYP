@@ -12,10 +12,10 @@ cloudinary.config({
 const{
     tokenValidation,
     authorization,
-    verifiedVerification,
+   
 } = require('../controller/authorizeController')
 
-router.post('/upload',tokenValidation, authorization('admin'),(req,res)=>{
+router.post('/upload',tokenValidation, authorization('admin','patient'),(req,res)=>{
     try{
         console.log(req.files)
         if(!req.files || Object.keys(req.files).length === 0){

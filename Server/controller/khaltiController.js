@@ -18,14 +18,10 @@ const verifyPayment = async (req, res) => {
         },
         config
       );
-      // if (response.data.state === 'Completed') {
-      //   // Update payment status in your database
-      //   res.status(200).json({ message: 'Payment successful' });
-      // } else {
-      //   // Handle payment verification error
-      //   res.status(500).json({ message: 'Payment verification failed' });
-      // }
-      return res.json(response.data)
+      
+      //Successful verification
+      
+      res.status(200).json({ message: 'Payment verification successful' });
     } catch (error) {
       // Handle payment verification and capture error
       console.error(error);

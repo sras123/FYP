@@ -17,10 +17,10 @@ const Reviews = () => {
         setReviews(res.data)
     }
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
-    };
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		history.push("/login");
+	};
     return (
         <>
             <style>
@@ -35,10 +35,10 @@ const Reviews = () => {
                 <ul>
                     <li><a href="/aboutUs">About Us</a></li>
                     <li><a href="/doctors">Doctor</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/room">Room</a></li>
                     <li><a href="/reviews">Reviews</a></li>
 
-                    <li><a href="/login" onclick={handleLogout}>logout</a></li>
+                    <li><a href="/login" onClick={handleLogout}>logout</a></li>
                 </ul>
             </div>
 
@@ -124,9 +124,8 @@ const Reviews = () => {
                         </div>
                         <ul class="list">
                             <li><a href="/aboutUs">About Us</a></li>
-                            <li><a href="/contact">Contact</a></li>
                             <li><a href="/reviews">Reviews</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="/privacypolicy">Privacy Policy</a></li>
                         </ul>
                         <p class="Copyright">
                             @2023 My Psychiatrist

@@ -43,26 +43,29 @@ app.use('/', khaltiRoutes);
 
 // Socket.IO
 const server = http.createServer(app);
-
+//creating a socket.IO server instance
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
-
+//handles the events when a user connects to the server
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
+//handles the event when a user joins a room
   socket.on("join_room", (data) => {
     socket.join(data);
     console.log(`User with ID: ${socket.id} joined room: ${data}`);
   });
 
+  //handles the event when a user sends a message
   socket.on("send_message", (data) => {
     socket.to(data.room).emit("receive_message", data);
   });
 
+  //handles the event when a user disconnets from the server
   socket.on("disconnect", () => {
     console.log("User Disconnected", socket.id);
   });

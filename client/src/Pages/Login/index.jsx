@@ -31,9 +31,11 @@ const Login = () => {
                 error.response.status <= 500
             ) {
                 setError(error.response.data.message);
+				toast.error("Incorrect password")
             }
         }
     };
+	
 
 	return (
 		<div className={styles.login_container}>

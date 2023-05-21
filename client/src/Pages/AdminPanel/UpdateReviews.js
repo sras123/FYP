@@ -118,10 +118,10 @@ const UpdateReview = () => {
         setReview({ ...review, "Rating": e.target.value })
     }
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
-    };
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		history.push("/login");
+	};
 
 
     return (
@@ -140,7 +140,7 @@ const UpdateReview = () => {
                     <li><a href="#">Doctors</a></li>
                     <li><a href="/Applications">Applications</a></li>
                     <li><a href="/AllReviews">Reviews</a></li>
-                    <li><a href="/login" onclick={handleLogout}>logout</a></li>
+                    <li><a href="/login" onClick={handleLogout}>logout</a></li>
 
 
                 </ul>

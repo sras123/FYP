@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableRow, makeStyles, Button } from "@material-ui/core";
 import axios from "axios";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -68,10 +68,12 @@ const AllReviews = () => {
         setRefresh(!refresh)
     }
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
-    };
+    const history = useHistory()
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		history.push("/login");
+	};
+
     return (
         <>
             <style>
@@ -115,9 +117,9 @@ const AllReviews = () => {
                                     <TableCell>{review.Name}</TableCell>
                                     <TableCell>{review.description}</TableCell>
                                     <TableCell>{review.Rating}</TableCell>
-                                    <TableCell><img src={review.images.url} style={{ height: 200, width: 200 }}></img></TableCell>
+                                    <TableCell><img src={review.images.url} style={{ height: 300, width: 200 }}></img></TableCell>
                                     <TableCell>
-                                        <Button variant="contained" color="primary" style={{ margin: 10 }} component={Link} to={`/updateReview/${review._id}`}>Edit</Button>
+                                        {/* <Button variant="contained" color="primary" style={{ margin: 10 }} component={Link} to={`/updateReview/${review._id}`}>Edit</Button> */}
                                         <Button variant="contained" color="secondary" onClick={() => deleteReviewData(review._id)}>Delete</Button>
                                     </TableCell>
                                 </TableRow>
@@ -129,19 +131,7 @@ const AllReviews = () => {
                 </TableBody>
             </Table>
 
-            <div class="footer">
-                <div class="social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <ul class="list">
-                    <li><a href="/allusers">Users</a></li>
-                    <li><a href="/reviews">Review</a></li>
-                    <li><a href="/appoint">Appointment</a></li>
-                    <li><a href="/therapy">Therapy</a></li>
-                </ul>
-            </div>
+           
         </>
     )
 }

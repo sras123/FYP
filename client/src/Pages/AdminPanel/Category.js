@@ -1,10 +1,9 @@
 import React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableRow, makeStyles, Button } from "@material-ui/core";
 import axios from "axios";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams , useHistory} from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { decode } from "jwt-decode";
 
 const useStyles = makeStyles({
     table: {
@@ -25,7 +24,6 @@ const useStyles = makeStyles({
     },
 });
 const Category = () => {
-    const { id } = useParams();
     const [categories, setCategory] = useState([]);
     const classes = useStyles();
     const [refresh, setRefresh] = useState(false);
@@ -68,10 +66,12 @@ const Category = () => {
         setRefresh(!refresh)
     }
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
-    };
+    const history = useHistory()
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		history.push("/login");
+	};
+
     return (
         <>
             <style>
@@ -88,7 +88,7 @@ const Category = () => {
                     <li><a href="/alldoctors">Psychiatrists</a></li>
                     <li><a href="/Applications">Applications</a></li>
                     <li><a href="/AllReviews">Reviews</a></li>
-                    <li><a href="/login" onclick={handleLogout}>logout</a></li>
+                    <li><a href="/login" onClick={handleLogout}>logout</a></li>
 
 
                 </ul>
@@ -125,20 +125,6 @@ const Category = () => {
 
                 </TableBody>
             </Table>
-
-            <div class="footer">
-                <div class="social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <ul class="list">
-                    <li><a href="/adminpanel">Users</a></li>
-                    <li><a href="/reviews">Review</a></li>
-                    <li><a href="/doctors">Appoint</a></li>
-                    <li><a href="/therapy">Therapy</a></li>
-                </ul>
-            </div>
         </>
     )
 }

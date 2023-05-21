@@ -1,12 +1,13 @@
 import KhaltiCheckout from "khalti-checkout-web";
 import axios from 'axios';
+import myKey from "./KhatliKey";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-
-export function KhaltiButton(){
+export function KhaltiButton(total){
 let config = {
     // replace this key with yours
-    "publicKey": "test_public_key_9a64b0754e1b42c0aadad197d4ef1d14",
+    "publicKey": myKey.publicTestKey,
     "productIdentity": "1234567890",
     "productName": "My Psychiatrist",
     "productUrl": "http://localhost:3000/",
@@ -21,7 +22,8 @@ let config = {
             })
             .then(response => {
                 console.log(response.data);
-                alert("payment successful");
+                toast.success("Payment successful"); 
+                alert("Your room is 1234")
                 // Handle successful payment verification and capture response
             })
             .catch(error => {
@@ -45,6 +47,6 @@ let checkout = new KhaltiCheckout(config);
 let btn = document.getElementById("payment-button");
 btn.onclick = function () {
     // minimum transaction amount must be 10, i.e 1000 in paisa.
-    checkout.show({amount: 1000});
+    checkout.show({amount: total});
 }
 }

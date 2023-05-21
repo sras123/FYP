@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 const AboutUs = () => {
+	const history = useHistory()
 	const handleLogout = () => {
 		localStorage.removeItem("token");
-		window.location.reload();
+		history.push("/login");
 	};
+
 	return (
 		<>
 			<style>
@@ -20,9 +23,9 @@ const AboutUs = () => {
 				<ul>
 					<li><a href="/aboutUs">About Us</a></li>
 					<li><a href="/doctors">Doctor</a></li>
-					<li><a href="/contact">Contact</a></li>
+					<li><a href="/room">Room</a></li>
 					<li><a href="/reviews">Reviews</a></li>
-					<li><a href="/login" onclick={handleLogout}>logout</a></li>
+					<li><a href="/login" onClick={handleLogout}>logout</a></li>
 
 				</ul>
 			</div>

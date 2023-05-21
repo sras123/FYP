@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, Input, InputLabel, Typography, makeStyles, Button, Select, MenuItem } from "@material-ui/core";
 import React, {useState} from "react";
-import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 import {toast} from "react-toastify";
 import CategoriesAPI from "../../api/CategoriesAPI";
@@ -26,15 +26,9 @@ const PostDoctor = () =>{
     }
     const[categories] = state.categoryAPI.categories
     console.log(categories)
-    const [doctor_id, setDoctorId] = useState('');
-    const [title, setTitle] = useState('');
-    const [name, setName] = useState('');
-    const [price, setPrice] = useState('');
-    const [description, setDescription] = useState('');
-    const [content, setContent] = useState('');
     const [images, setImages] = useState(true);
-    const [category, setCategory] = useState('');
-    const history  = useHistory()
+    
+   
     const token = localStorage.getItem("token");
       const handleUpload = async e => {
         e.preventDefault()
@@ -68,32 +62,7 @@ const PostDoctor = () =>{
         }
       }
 
-      const handleChange = (event)=>{
-        setCategory(event.target.value);
-      }
-   /* const addDoctor =async(e)=>{
-        e.preventDefault()
-        const token = localStorage.getItem("token")
-        const url = "http://localhost:8080/doctors";
 
-        const config = {
-            headers:{
-                "Content-Type" : "application/json",
-                "Authorization": `Bearer ${token}`
-            }
-        }
-
-        try{
-            const {data} = await axios.post(url, {doctor_id,title,name,price,description,image,category}, config);
-            console.log(data)
-            toast.success("Doctor added successfully");
-            history.push("/adminpanel")
-    
-        }catch(err){
-            console.log(err);
-            toast.err("Failed to add")
-        }
-    }*/
 
     const handleChangeInput  = e =>{
         const {name, value} = e.target
@@ -162,7 +131,7 @@ const PostDoctor = () =>{
   
                         {
                             categories && categories.map(category =>(
-                               <MenuItem value={category._id} key={category._id}>
+                               <MenuItem value={category.name} key={category._id}>
                                     {category.name}
                                </MenuItem> 
                             ))

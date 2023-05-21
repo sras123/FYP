@@ -1,14 +1,16 @@
-import React, {useState} from "react";
-import { Link, useNagivate } from "react-router-dom";
+import React, {useState,useHistory} from "react";
+import { Link } from "react-router-dom";
 
 import axios from 'axios'
 import { toast } from "react-toastify";
  
 const ApplyDoctor = () => {
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
-    }
+    const history = useHistory()
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		history.push("/login");
+	};
+
     const[psych, setPsych] = useState('');
 
     const [images, setImages] = useState(true);
@@ -78,10 +80,10 @@ const ApplyDoctor = () => {
                 <ul>
                     <li><a href="/aboutUs">About Us</a></li>
                     <li><a href="/doctors">Doctor</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/room">Room</a></li>
                     <li><a href="/reviews">Reviews</a></li>
                    
-                    <li><a href="/login" onclick={handleLogout}>logout</a></li>
+                    <li><a href="/login" onClick={handleLogout}>logout</a></li>
 
 
                 </ul>
@@ -121,9 +123,8 @@ const ApplyDoctor = () => {
                 </div>
                 <ul class="list">
                     <li><a href="/aboutUs">About Us</a></li>
-                    <li><a href="/contact">Contact</a></li>
                     <li><a href="/reviews">Reviews</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="/privacypolicy">Privacy Policy</a></li>
                 </ul>
                 <p class="Copyright">
                     @2023 My Psychiatrist

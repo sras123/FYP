@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import DoctorAPI from '../../api/DoctorAPI';
 import DoctorItem from './DoctorItem';
 import UserAPI from '../../api/UserAPI';
@@ -17,10 +17,11 @@ function DetailDoctor() {
     if (firstLogin) refreshToken()
     refreshToken();
   }, [])
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload();
-  };
+  const history = useHistory()
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		history.push("/login");
+	};
   const state = {
     doctorsAPI: DoctorAPI(),
     userAPI: UserAPI(token)
@@ -57,9 +58,8 @@ function DetailDoctor() {
         <ul>
           <li><a href="/aboutUs">About Us</a></li>
           <li><a href="/doctors">Doctors</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/room">Room</a></li>
           <li><a href="/reviews">Reviews</a></li>
-          
           <li><a href="/login" onclick={handleLogout}>logout</a></li>
         </ul>
         <div className="cart-icon">
@@ -106,9 +106,8 @@ function DetailDoctor() {
 			</div>
 			<ul class="list">
 				<li><a href="/aboutUs">About Us</a></li>
-			    <li><a href="/contact">Contact</a></li>
 			    <li><a href="/reviews">Reviews</a></li>
-				<li><a href="#">Privacy Policy</a></li>
+					<li><a href="/privacypolicy">Privacy Policy</a></li>
 			</ul>
 			<p class="Copyright">
 			@2023 My Psychiatrist

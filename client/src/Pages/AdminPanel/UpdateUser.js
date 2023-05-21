@@ -1,19 +1,19 @@
-import React, { useState, useEffect, Link } from 'react';
-import { FormControl, FormGroup, InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
+import React, { useState,useEffect } from 'react';
+import {FormControl, FormGroup, InputLabel,Input,Button,makeStyles, Typography} from '@material-ui/core';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import decode from 'jwt-decode';
 import { toast } from 'react-toastify';
 
 const useStyles = makeStyles({
-    container: {
+    container:{
         width: '50%',
         margin: '5% 0 0 25%',
         '& > *': {
             marginTop: 20
         }
     }
-
+    
 });
 
 const intialValues = {
@@ -26,11 +26,11 @@ const intialValues = {
 const UpdatUser = () => {
     const classes = useStyles();
     const [user, setUser] = useState(intialValues);
-    const { firstName, lastName, email, password } = user;
-    const { id } = useParams();
+    const{firstName,lastName,email,password} = user;
+    const {id} = useParams();
     const history = useHistory();
 
-    const editUser = async (e) => {
+    const editUser= async(e)=>{
         e.preventDefault();
         const token = localStorage.getItem("token")
         var decoded = decode(token);
@@ -45,97 +45,96 @@ const UpdatUser = () => {
             }
         }
 
-        try {
-            const { data } = await axios.patch(url, user, config);
+        try{
+            const {data} = await axios.patch(url,user,config);
             console.log(data)
             toast.success("user updated")
-            history.push('/adminpanel')
-        } catch (err) {
+            history.push('/adminpanel')      
+        }catch(err){
             console.log(err)
             toast.error("Failed to Update")
         }
     }
 
-    const loadUserData = async (e) => {
+    const loadUserData = async(e)=>{
         console.log(id)
-        const response = await axios.get(`http://localhost:8080/user/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
+        const response = await axios.get(`http://localhost:8080/user/${id}`, {headers:{Authorization:`Bearer ${localStorage.getItem("token")}`}})
         setUser(response.data);
     }
 
-    useEffect(() => {
+    useEffect(()=>{
         loadUserData();
-    }, [])
+    },[])
 
-    const firstNameChange = (e) => {
+    const firstNameChange = (e)=>{
         e.preventDefault()
-        setUser({ ...user, "firstName": e.target.value })
+        setUser({...user,"firstName":e.target.value})
     }
 
-    const lastNameChange = (e) => {
+    const lastNameChange = (e)=>{
         e.preventDefault()
-        setUser({ ...user, "lastName": e.target.value })
+        setUser({...user,"lastName":e.target.value})
     }
 
-    const emailChange = (e) => {
+    const emailChange = (e)=>{
         e.preventDefault()
-        setUser({ ...user, "email": e.target.value })
+        setUser({...user,"email":e.target.value})
     }
 
-    const passwordChange = (e) => {
+    const passwordChange = (e)=>{
         e.preventDefault()
-        setUser({ ...user, "password": e.target.value })
+        setUser({...user,"password":e.target.value})
     }
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
-    };
-
-    return (
-        <>
-            <style>
-                @import url('/css/adminpanel.css');
-            </style>
-
-            <div class="navbar">
-                <Link to="/adminpanel">
-                    <h1>Admin Panel</h1>
-                </Link>
-                <ul>
-                    <li><a href="/adminpanel">Users</a></li>
-                    <li><a href="/category">Category</a></li>
-                    <li><a href="#">Doctors</a></li>
-                    <li><a href="/Applications">Applications</a></li>
-                    <li><a href="/AllReviews">Reviews</a></li>
-                    <li><a href="/login" onclick={handleLogout}>logout</a></li>
+   
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		history.push("/login");
+	};
 
 
-                </ul>
-            </div>
-            <form onSubmit={editUser}>
-                <FormGroup className={classes.container}>
-                    <Typography variant='h4'>Edit User</Typography>
-                    <FormControl>
-                        <InputLabel>First Name</InputLabel>
-                        <Input onChange={(e) => firstNameChange(e)} name='firrstName' value={firstName}></Input>
-                    </FormControl>
-                    <FormControl>
-                        <InputLabel>Last Name</InputLabel>
-                        <Input onChange={(e) => lastNameChange(e)} name='lastName' value={lastName}></Input>
-                    </FormControl>
-                    <FormControl>
-                        <InputLabel>Email</InputLabel>
-                        <Input onChange={(e) => emailChange(e)} name='email' value={email}></Input>
-                    </FormControl>
-                    <FormControl>
-                        <InputLabel>Password</InputLabel>
-                        <Input onChange={(e) => passwordChange(e)} name='password' value={password}></Input>
-                    </FormControl>
-                    <Button variant="contained" color="primary" type="submit">Edit User</Button>
-                </FormGroup>
-            </form>
+  return (
+    <>
+     <style>
+			@import url('/css/adminpanel.css');
+		</style>
+		
+		<div class="navbar">
+			<h1>Admin Panel</h1>
+			<ul>
+				<li><a href="/adminpanel">Users</a></li>
+			    <li><a href="/AllReviews">Reviews</a></li>
+			    <li><a href="/reviews">Appoint</a></li>
+			    <li><a href="/signup">Therapy</a></li>
+				<li><a href="/login" onClick={handleLogout}>logout</a></li>
+				
+			
+			</ul>
+		</div>
+    <form onSubmit={editUser}>
+        <FormGroup className={classes.container}>
+            <Typography variant='h4'>Edit User</Typography>
+            <FormControl>
+                <InputLabel>First Name</InputLabel>
+               <Input onChange={(e)=> firstNameChange(e)} name='firstName' value={firstName}></Input>
+            </FormControl>
+            <FormControl>
+                <InputLabel>Last Name</InputLabel>
+               <Input onChange={(e)=> lastNameChange(e)} name='lastName' value={lastName}></Input>
+            </FormControl>
+            <FormControl>
+                <InputLabel>Email</InputLabel>
+               <Input onChange={(e)=> emailChange(e)} name='email' value={email}></Input>
+            </FormControl>
+            <FormControl>
+                <InputLabel>Password</InputLabel>
+               <Input onChange={(e)=> passwordChange(e)} name='password' value={password}></Input>
+            </FormControl>
+            <Button variant="contained" color="primary" type="submit">Edit User</Button>
+        </FormGroup>
+        </form>
         </>
-    )
+  )
 }
 
 export default UpdatUser;
