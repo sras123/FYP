@@ -61,9 +61,9 @@ const Login = () => {
 							required
 							className={styles.input}
 						/>
-						<Link to="/forgot-password" styles={{alignSelf:"flex-start"}}>
+						{/* <Link to="/forgot-password" styles={{alignSelf:"flex-start"}}>
 							<p style={{padding:"0 15px"}}>Forgot Password?</p>
-						</Link>
+						</Link> */}
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Login

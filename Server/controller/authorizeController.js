@@ -97,6 +97,8 @@ const login = async (req, res, next) => {
                 } else {
                     tokenResponse(existingUser, 200, res)
                 }
+            }else {
+                return res.status(400).json("Incorrect Password");
             }
         }catch(err){
             res.json(err.message)

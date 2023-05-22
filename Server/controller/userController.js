@@ -180,8 +180,6 @@ const postPsych = async(req, res, next) => {
             }
       }
 
-          
-         
         }
         catch(err){
           console.log(err);
@@ -194,6 +192,10 @@ const postPsych = async(req, res, next) => {
       return res.status(400).json("password didnt match")
     }
  }catch(err){
+
+
+
+
   console.log(err)
     return res.status(500).json("Error")
   }

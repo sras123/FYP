@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableRow, makeStyles, Button } from "@material-ui/core";
 import axios from "axios";
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     },
 });
 const AllReviews = () => {
-    const { id } = useParams();
+    // const { id } = useParams();
     const [reviews, setReviews] = useState([]);
     const classes = useStyles();
     const [refresh, setRefresh] = useState(false);
@@ -90,7 +90,7 @@ const AllReviews = () => {
                     <li><a href="/allDoctors">Psychiatrists</a></li>
                     <li><a href="/Applications">Applications</a></li>
                     <li><a href="/AllReviews">Reviews</a></li>
-                    <li><a href="/login" onclick={handleLogout}>logout</a></li>
+                    <li><a href="/login" onClick={handleLogout}>logout</a></li>
 
 
                 </ul>

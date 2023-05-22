@@ -1,7 +1,7 @@
 import io from "socket.io-client";
 import { useState, handleLogout } from "react";
 import { useHistory } from "react-router-dom";
-import Chat from "../../Chat";
+import Chat from "./Chat";
 import { Link } from "react-router-dom";
 
 const socket = io.connect("http://localhost:8080");

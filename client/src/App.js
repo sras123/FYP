@@ -28,45 +28,43 @@ import UpdateReview from "./Pages/AdminPanel/UpdateReviews";
 import Applications from "./Pages/AdminPanel/Applications";
 import UpdateApplication from "./Pages/AdminPanel/UpdateApplication";
 
-function App() {
-	const user = localStorage.getItem("token");
-
-	return ( 
+const App = () => {
+    return (
         <>
-        <Switch>
-            {user && <Route exact path="/" component={Main } />}
-			<Route exact path="/signup" component={Signup } />
-			<Route exact path="/login" component={Login } />
-            <Route exact path="/aboutUs" component={AboutUs } />
-            <Route exact path="/privacypolicy" component={Privacypolicy } />
-            <Route exact path="/reviews" component={Reviews } />
-            <Route exact path="/users/:id/verify/:token" component={Emailverify } />
-            <Route exact path="/forgot-password" component={ForgotPassword}/>
-            <Route exact path="/password-reset/:id/:token" component={PasswordReset}/>
-            <Route exact path="/adminpanel" component={AdminPanel}/>
-            <Route exact path="/room" component={Room}/>
-            <Route exact path="/updateUser/:id" component={UpdatUser}/>
-            <Route exact path="/postUser" component={PostUser}/>
-            <Route exact path="/apply" component={ApplyDoctor}/>
-            <Route exact path="/postDoctor" component={PostDoctor}/>
-            <Route exact path= "/doctors" component={Doctor}/>
-            <Route exact path="/detailDoctor/:id" component={DetailDoctor}/>
-            <Route exact path="/appoint" component={Cart}/>
-            <Route exact path="/updateCategory/:id" component={UpdateCategory}/>
-            <Route exact path="/postCategory" component={PostCategory}/>
-            <Route exact path="/category" component={Category}/>
-            <Route exact path="/alldoctors" component={Doctors}/>
-            <Route exact path="/updateDoctor/:id" component={UpdateDoctor}/>
-            <Route exact path="/addReview" component={AddReview}/>
-            <Route exact path="/allReviews" component={AllReviews}/>
-            <Route exact path="/updateReview/:id" component={UpdateReview}/>
-            <Route exact path="/applications" component={Applications}/>
-            <Route exact path="/updateApplication/:id" component={UpdateApplication}/>
-        </Switch>
-        
+            <Switch>
+                <Route exact path="/" component={Main} />
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/aboutUs" component={AboutUs} />
+                <Route exact path="/privacypolicy" component={Privacypolicy} />
+                <Route exact path="/reviews" component={Reviews} />
+                <Route exact path="/users/:id/verify/:token" component={Emailverify} />
+                <Route exact path="/forgot-password" component={ForgotPassword} />
+                <Route exact path="/password-reset/:id/:token" component={PasswordReset} />
+                <Route exact path="/adminpanel" component={AdminPanel} />
+                <Route exact path="/room" component={Room} />
+                <Route exact path="/updateUser/:id" component={UpdatUser} />
+                <Route exact path="/postUser" component={PostUser} />
+                <Route exact path="/apply" component={ApplyDoctor} />
+                <Route exact path="/postDoctor" component={PostDoctor} />
+                <Route exact path="/doctors" component={Doctor} />
+                <Route exact path="/detailDoctor/:id" component={DetailDoctor} />
+                <Route exact path="/appoint" component={Cart} />
+                <Route exact path="/updateCategory/:id" component={UpdateCategory} />
+                <Route exact path="/postCategory" component={PostCategory} />
+                <Route exact path="/category" component={Category} />
+                <Route exact path="/alldoctors" component={Doctors} />
+                <Route exact path="/updateDoctor/:id" component={UpdateDoctor} />
+                <Route exact path="/addReview" component={AddReview} />
+                <Route exact path="/allReviews" component={AllReviews} />
+                <Route exact path="/updateReview/:id" component={UpdateReview} />
+                <Route exact path="/applications" component={Applications} />
+                <Route exact path="/updateApplication/:id" component={UpdateApplication} />
+            </Switch>
+
         </>
     );
-	
+
 };
 
 

@@ -1,5 +1,5 @@
-import React, {useState,useHistory} from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import { Link,useHistory } from "react-router-dom";
 
 import axios from 'axios'
 import { toast } from "react-toastify";
@@ -97,7 +97,7 @@ const ApplyDoctor = () => {
                         <h2>Apply as Psychiatrist</h2><br />
                         <h3>Give Your Personal Details:</h3>
                         <input type="text" class="field" placeholder="First Name" value={psych.firstName} name="firstName" onChange={handleChangeInput}></input>
-                        <input type="text" class="field" placeholder="Last Email" value={psych.lastName} name="lastName" onChange={handleChangeInput}></input>
+                        <input type="text" class="field" placeholder="Last Name" value={psych.lastName} name="lastName" onChange={handleChangeInput}></input>
                         <input type="email" class="field" placeholder="Email" value={psych.email} name="email" onChange={handleChangeInput}></input><br />
                         <h3>Professional Details:</h3>
                         <input type="text" class="field" placeholder="Your Specialization" value={psych.specialization} name="specialization" onChange={handleChangeInput}></input>

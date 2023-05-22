@@ -23,7 +23,7 @@ let config = {
             .then(response => {
                 console.log(response.data);
                 toast.success("Payment successful"); 
-                alert("Your room is 1234")
+                alert("Your room ID is 1234")
                 // Handle successful payment verification and capture response
             })
             .catch(error => {
