@@ -7,7 +7,7 @@ const verifyPayment = async (req, res) => {
         
       const config = {
         headers: {
-          "Authorization":'Key test_secret_key_91777f9e70884e718840332957d04751',
+          "Authorization":'Key test_secret_key_91777f9e70884e718845hehbrgjew',
         },
       };
       const response = await axios.post(

@@ -125,7 +125,7 @@ const Applications = () => {
                         <TableCell>
                             {/* <Button variant="contained" color="primary"style={{margin:10}} component={Link} to={`/updateApplication/${application._id}`}>Edit</Button> */}
                             <Button variant="contained" color="secondary" onClick={()=> deleteApplication(application._id)} >Delete</Button>
-                            <Button variant="contained" color="primary" component={Link} to={'/postUser'}>Approve</Button>
+                            <Button variant="contained" color="primary" component={Link} to={'/postUser'}>Aprrove</Button>
 
                         </TableCell>
                     </TableRow>
